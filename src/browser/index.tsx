@@ -9,6 +9,7 @@ import "./index.css";
  */
 import * as React from "react";
 import { hydrate } from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import ConfigContext from "../components/ConfigContext";
 import { Config } from "../server/config";
@@ -23,7 +24,9 @@ const render = () => {
     <>
       {/* The configuration is the outmost component. This allows us to read the configuration even in the theme */}
       <ConfigContext.Provider value={config}>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </ConfigContext.Provider>
     </>,
     document.getElementById("root"),
